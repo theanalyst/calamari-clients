@@ -1,0 +1,18 @@
+{% set username = salt['environ.get']('SUDO_USER', 'vagrant') %}
+
+{% if username == 'vagrant' %}
+
+{%    set gitpath = '/git' %}
+{%    set home = '/home/vagrant' %}
+{%    set builddir = '/home/vagrant/clients' %}
+{%    set pkgdest = gitpath %}
+
+{% else %}
+
+{%    set gitpath = 'git://github.com/ceph' %}
+{%    set home = salt['user.info'](username)['home'] %}
+{%    set builddir = salt['environ.get']('WORKSPACE', home) %}
+{%    set pkgdest = home %}
+
+{% endif %}
+

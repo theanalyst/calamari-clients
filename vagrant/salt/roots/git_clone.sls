@@ -1,7 +1,8 @@
+{% import 'setvars' as vars with context %}
 git_clone:
   git:
     - latest
-    - user: vagrant
-    - target: /home/vagrant/clients
-    - name: /git/calamari-clients
+    - user: {{vars.username}}
+    - target: {{vars.builddir}}/clients
+    - name: {{vars.gitpath}}/calamari-clients
 
