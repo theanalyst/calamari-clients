@@ -9,7 +9,7 @@ build_calamari_clients:
 
 copy_calamari_clients:
   cmd.run:
-    - name: cp rpmbuild/RPMS/x86_64/calamari-clients*.rpm {{vars.pkgdefs}}
+    - name: cp rpmbuild/RPMS/x86_64/calamari-clients*.rpm {{vars.pkgdest}}
     - cwd: {{vars.builddir}}
     - require:
       - cmd: build_calamari_clients
